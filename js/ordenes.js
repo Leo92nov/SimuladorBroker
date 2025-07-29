@@ -190,9 +190,6 @@ confirmarOperacion.addEventListener("click", (event) => {
     }
     
     
-    
-    
-    
     if(!cedearApuntadoCartera && tipoOperacion.value === "venta"){
         
         usuarioLoggeado.liquidez -= parseInt(precioTotalOperar.value);
@@ -208,17 +205,14 @@ confirmarOperacion.addEventListener("click", (event) => {
         }
         const NuevoCedearCartera = new NuevoCedear( cedearAOperarNombre.value, cedearAOperar.value, parseInt(precioCedearOperar.value), parseInt(cantidadCedearOperar.value), usuarioLoggeado.nombreUsuario);
         
- 
         usuarioLoggeado.liquidez -= parseInt(precioTotalOperar.value);
         
         carteras[indexUsuario] = carteraON;
         
-
         const ordenCompletada = OrdenesTotales.find(orden => orden.id === idOperacion.value);
         const usuarioEmisor = usuarios.find(usuario => usuario.nombreUsuario === ordenCompletada.usuario);
         usuarioEmisor.liquidez += parseInt(precioTotalOperar.value);
         
-    
         usuarios[indexUsuario] = usuarioLoggeado;
         let usuariosJSON = JSON.stringify(usuarios);
         localStorage.setItem("arrayDeUsuarios", usuariosJSON);
@@ -226,10 +220,15 @@ confirmarOperacion.addEventListener("click", (event) => {
         localStorage.setItem("usuarioOn", usuarioON);
         
         carteraON.push(NuevoCedearCartera);
+        console.log(carteraON);
+        
+        const elementoNoDeseado = carteraON.find(obj => obj.Nombre === undefined)
+        if(elementoNoDeseado){
+            carteraON.splice(elementoNoDeseado, 1)
+        }
         carteras[indexUsuario] = carteraON;
         const CarterasJSON = JSON.stringify(carteras);
         localStorage.setItem("arrayDeCarteras", CarterasJSON);
- 
         
         
         OrdenesActualizadas = actualizarYEliminarOrden(OrdenesTotales, idOperacion.value, cantidadCedearOperar.value);
@@ -318,8 +317,7 @@ confirmarOperacion.addEventListener("click", (event) => {
 
             OrdenesActualizadas = actualizarYEliminarOrden(OrdenesTotales, idOperacion.value, cantidadCedearOperar.value);
 
-            const OrdenesActualizadas = agruparOrdenesPorUsuario(OrdenesTotales);
-            const OrdenesJSON = JSON.stringify(OrdenesAgrupadas);
+            const OrdenesJSON = JSON.stringify(OrdenesActualizadas);
             localStorage.setItem("arrayDeOrdenes", OrdenesJSON);
             
             mostrarMensajeOrdenesNuevas("operacion realizada con exito!!");
