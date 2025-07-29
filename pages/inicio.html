@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="../js/inicio.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Inicio</title>
+</head>
+<body class="bodyInicio">
+    <header class="header">
+        <nav>
+            <div class="divHeader">
+                <section class="sectionHeader">
+                    <a href="./inicio.html"><img src="../assets/images/inicio/Header.jpg" alt="logo" class="logoHeader"></a>
+                </section>
+                <div class="ulHeader">
+                    <ul class="ulList">
+                        <li class="headerListItem"><a href="./inicio.html" class="headerListItem">Inicio</a></li>
+                        <li class="headerListItem"><a href="./ordenes.html" class="headerListItem">Operar</a></li>
+                        <li class="headerListItem"><a href="./panelGeneral.html" class="headerListItem">Panel General</a></li>
+                        <li class="headerListItem"><a href="./prestamos.html" class="headerListItem">Préstamos</a></li>
+                        <li class="headerListItem"><a href="./calculdora.html" class="headerListItem">Calculadora</a></li>
+                    </ul>
+                </div>    
+            </div>
+        </nav>
+    </header>
+    <div>
+        <div class="divDatosCuenta">
+            <section class="sectionDatoscuenta">Nombre de Cuenta
+                <span id="spanNombreCuenta" class="spanNombreCuenta"></span>
+            </section>
+            <section class="sectionDatoscuenta">Dinero Disponible
+                <span id="spanLiquidezCuenta" class="spanLiquidezCuenta"></span>
+            </section>
+            <section class="sectionDatoscuenta">Dinero Invertido
+                <span id="spanInversionCuenta" class="spanInversionCuenta"></span>
+            </section>
+        </div>
+    </div>
+    <div class="botonesIngresoInvEgreso">
+        <section>
+            <a href="./ingresoDinero.html" class="linkBotonIngreso">
+                <button class="botonIngresoDinero">
+                    <span>
+                        Ingresa Dinero
+                    </span>
+                    <span>
+                        ►
+                    </span>
+                </button>
+            </a>
+        </section>
+        <section>
+            <a href="./pages/ordenes.html" class="linkBotonInverti">
+                <button class="botonInvertir"><span>
+                        Realizar Inversiones
+                    </span>
+                    <span>
+                        ►
+                    </span>
+                </button>
+            </a>
+        </section>
+        <section>
+            <a href="./egresoDinero.html" class="linkBotonEgreso">
+                <button class="botonEgresoDinero">
+                    <span>
+                        Egreso de Dinero
+                    </span>
+                    <span>
+                        ►
+                    </span></button>
+            </a>
+        </section>
+    </div>
+    <div class="infoCuenta">
+
+    </div>
+    <div class="contenedorInversiones">
+
+        <span class="spanInversiones">Mis inversiones</span>
+
+        <div class="inversionesEncabezado">
+            <section>Nombre</section>
+            <section>Ticker</section>
+            <section>Precio</section>
+            <section>Cantidad</section>
+            <section>Total por acción</section>
+            <section>Operar CEDEAR</section>
+        </div>
+
+        <div class="divInversiones" id="divInversiones"></div>
+
+        <div class="divTotalInversion">
+            <span>Total Invertido</span>
+            <span id="spanTotalInvertido" class="spanTotalInvertido"></span>
+        </div>
+    </div>
+
+
+    <div class="contenedorMisOrdenes">
+
+        <span class="spanOrdenes">Ordenes Activas</span>
+
+        <div class="ordenesEncabezado">
+            <section>Nombre</section>
+            <section>Ticker</section>
+            <section>Precio</section>
+            <section>Cantidad</section>
+            <section>Tipo de Orden</section>
+        </div>
+
+        <div class="divMisOrdenes" id="divMisOrdenes"></div>
+    </div>
+    <footer class="footer">
+        <div class="div-footer">
+            <div class="logo-footer"><img src="../assets/images/inicio/LogoFooter.png" alt=""></div>
+            <div class="derechos">
+                <p class="p-derechos">© 2025 Coder Market brokers All Rights Reserved.</p>
+            </div>
+            <div class="links">
+                <h2 class="h2-footer-enlaces">Helpful Links</h2>
+            </div>
+            <div class="enlaces">
+                <a href="./inicio.html" class="enlacei">Inicio</a>
+                <a href="./ordenes.html" class="enlacei">Operar</a>
+                <a href="./panelGeneral.html" class="enlacei">Panel General</a>
+                <a href="./prestamos.html" class="enlacei">Prestamos</a>
+                <a href="./calculdora.html" class="enlacei">Calculadora</a>
+            </div>
+
+            <div class="accion">
+                <h2 class="h2accion">Cedear</h2>
+            </div>
+            <div class="h2precio">
+                <p>$425.68</p>
+            </div>
+
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
