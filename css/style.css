@@ -486,7 +486,7 @@
   padding: 4px 0;
 }
 .bodyInicio .contenedorInversiones .divInversiones .sectionInversion .inversionesVenderComprar {
-  padding-right: 4px;
+  padding: 0 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -494,10 +494,22 @@
 .bodyInicio .contenedorInversiones .divInversiones .sectionInversion .inversionesVenderComprar .inversionesComprar {
   text-decoration: none;
   color: rgb(0, 179, 6);
+  transition: 0.2s;
+}
+.bodyInicio .contenedorInversiones .divInversiones .sectionInversion .inversionesVenderComprar .inversionesComprar:hover {
+  transform: scale(1.1);
+  color: green;
+  font-weight: bold;
 }
 .bodyInicio .contenedorInversiones .divInversiones .sectionInversion .inversionesVenderComprar .inversionesVender {
   text-decoration: none;
   color: rgb(177, 0, 0);
+  transition: 0.2s;
+}
+.bodyInicio .contenedorInversiones .divInversiones .sectionInversion .inversionesVenderComprar .inversionesVender:hover {
+  transform: scale(1.1);
+  color: red;
+  font-weight: bold;
 }
 .bodyInicio .contenedorInversiones .divTotalInversion {
   background-color: rgb(227, 232, 255);
@@ -545,6 +557,22 @@
   align-items: center;
   padding: 4px 0;
   text-align: center;
+}
+.bodyInicio .contenedorMisOrdenes .sectionMisOrdenes .ordenesUsuario {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4rem;
+}
+.bodyInicio .contenedorMisOrdenes .sectionMisOrdenes .ordenesUsuario .botonCancelarOrden {
+  color: aliceblue;
+  background-color: rgb(10, 37, 64);
+  width: 4.5rem;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+.bodyInicio .contenedorMisOrdenes .sectionMisOrdenes .ordenesUsuario .botonCancelarOrden:hover {
+  transform: scale(1.1);
 }
 .bodyInicio .noHayOrdenes {
   font-size: 2rem;

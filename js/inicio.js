@@ -33,7 +33,7 @@ function mostrarOrdenes() {
                 <section>${e.ticker}</section>
                 <section>$${e.precio}</section>
                 <section>${e.cantidad}</section>
-                <section class="ordenesUsuario">${e.orden}</section>
+                <section class="ordenesUsuario">${e.orden}<button type="button" id ="botonCancelarOrden" class="botonCancelarOrden">Cancelar</button></section>
             `;
 
             contenedorOrdenes.appendChild(ordenes);
@@ -44,6 +44,17 @@ function mostrarOrdenes() {
             } else if (e.orden === "venta") {
                 tipoOrden.style.color = "red";
             }
+
+            const botonCancelarOrden = document.getElementById("botonCancelarOrden");
+
+           /*  botonCancelarOrden.addEventListener("click", ()=>{
+                if(e.orden == "compra"){
+                    let totalPorCompra = e.precio * e.cantidad
+                    usuarioLoggeado.liquidez += totalPorCompra
+
+                }
+            }) */
+
         });
     }else{
         const ordenesVacia = document.createElement("section");
@@ -52,6 +63,8 @@ function mostrarOrdenes() {
         contenedorOrdenes.appendChild(ordenesVacia);
     }
 }
+
+
 
 mostrarOrdenes()
 const colorOrdenes = document.getElementsByClassName("ordenesUsuario")

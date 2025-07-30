@@ -468,7 +468,6 @@ botonRealizarOperacion.addEventListener("click", () => {
     }
 
     let cedearDeOperacionOrden = carteraON.find(cedear => cedear.ticker === tickerNuevaOrden.value)
-    console.log(cedearDeOperacionOrden);
 
     if (tipoDeOperacion === "venta" && cedearDeOperacionOrden === undefined) {
         mostrarMensajeOrdenesNuevas("No posee el activo que intenta vender!!")
@@ -480,38 +479,46 @@ botonRealizarOperacion.addEventListener("click", () => {
         return
     }
 
-
+    let OperarSobreCedearEnCartera = carteraON.find(cedear => cedear.ticker === tickerNuevaOrden.value)
     let nuevaOrdenCreada = new NuevaOrden(nombreEmpresaNuevaOrden, tickerNuevaOrden, precioCedearNuevaOrden, cantidadNuevaOrden, tipoDeOperacion, ultimoId, usuarioParaNuevaOrden, precioTotalCedearOrden)
+    console.log(nuevaOrdenCreada);
 
-    if (nuevaOrdenCreada.tipoDeOperacion === "compra") {
-        usuarioLoggeado.liquidez -= precioTotalCedearOrden.value
-        let usuarioON = JSON.stringify(usuarioLoggeado);
-        localStorage.setItem("usuarioOn", usuarioON);
+    if (nuevaOrdenCreada.orden === "compra") {
+    usuarioLoggeado.liquidez -= precioTotalCedearOrden.value
+    let usuarioON = JSON.stringify(usuarioLoggeado);
+    localStorage.setItem("usuarioOn", usuarioON);
 
-        OrdenesTotales.push(nuevaOrdenCreada)
-        console.log(OrdenesTotales);
-        const OrdenesJSON = JSON.stringify(OrdenesTotales);
-        localStorage.setItem("arrayDeOrdenes", OrdenesJSON);
-
-    } /* else if (nuevaOrdenCreada.tipoDeOperacion === "venta") {
-        let cedearAordendar = carteraON.find(cedear => cedear.ticker === tickerNuevaOrden.value)
-        cedearAordendar.cantidad -= cantidadNuevaOrden.value
-
-        carteras[indexUsuario] = carteraON;
-
-        OrdenesTotales.push(nuevaOrdenCreada)
-        console.log(OrdenesTotales);
-        const OrdenesJSON = JSON.stringify(OrdenesTotales);
-        localStorage.setItem("arrayDeOrdenes", OrdenesJSON);
-    } */
+    OrdenesTotales.push(nuevaOrdenCreada)
+    const OrdenesJSON = JSON.stringify(OrdenesTotales);
+    localStorage.setItem("arrayDeOrdenes", OrdenesJSON);
 
     Swal.fire({
-        title: "Orden creada con exito!!",
+        title: "Orden creada con éxito!!",
         icon: "success",
         draggable: true
+    }).then(() => {
+        window.location.href = "../pages/inicio.html";
     });
+    
+} else if (nuevaOrdenCreada.orden === "venta") {
+    OperarSobreCedearEnCartera.cantidad -= nuevaOrdenCreada.cantidad
 
-    window.location.href = "../pages/inicio.html";
+    carteras[indexUsuario] = carteraON;
+
+    OrdenesTotales.push(nuevaOrdenCreada)
+    let carterasJSON = JSON.stringify(carteras)
+    localStorage.setItem("arrayDeCarteras", carterasJSON)
+    const OrdenesJSON = JSON.stringify(OrdenesTotales);
+    localStorage.setItem("arrayDeOrdenes", OrdenesJSON);
+
+    Swal.fire({
+        title: "Orden creada con éxito!!",
+        icon: "success",
+        draggable: true
+    }).then(() => {
+        window.location.href = "../pages/inicio.html";
+    });
+}
 
 })
 

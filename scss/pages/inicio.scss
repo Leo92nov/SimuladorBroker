@@ -90,7 +90,7 @@
                 padding: 4px 0;
 
                 .inversionesVenderComprar {
-                    padding-right: 4px;
+                    padding: 0 2rem;
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
@@ -98,11 +98,25 @@
                     .inversionesComprar {
                         text-decoration: none;
                         color: variables.$color-ganancia;
+                        transition: 0.2s;
+
+                        &:hover {
+                            transform: scale(1.1);
+                            color: green;
+                            font-weight: bold;
+                        }
                     }
 
                     .inversionesVender {
                         text-decoration: none;
                         color: variables.$color-perdida;
+                        transition: 0.2s;
+
+                        &:hover {
+                            transform: scale(1.1);
+                            color: red;
+                            font-weight: bold;
+                        }
                     }
                 }
             }
@@ -160,6 +174,25 @@
             align-items: center;
             padding: 4px 0;
             text-align: center;
+
+            .ordenesUsuario {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0 4rem;
+
+                .botonCancelarOrden {
+                    color: aliceblue;
+                    background-color: variables.$color-principal;
+                    width: 4.5rem;
+                    border-radius: 6px;
+                    transition: 0.2s;
+
+                    &:hover {
+                        transform: scale(1.1);
+                    }
+                }
+            }
         }
     }
 
