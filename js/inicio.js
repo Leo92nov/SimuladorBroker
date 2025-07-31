@@ -15,13 +15,16 @@ console.log(Ordenes);
 
 const indexUsuario = Usuarios.findIndex(usuario => usuario.nombreUsuario === usuarioLoggeado.nombreUsuario);
 
+const CarteraOn = Carteras[indexUsuario]
+console.log(CarteraOn);
+
+let ordenesdelusuario = Ordenes.flat().filter(o => o.usuario === usuarioLoggeado.nombreUsuario)
+console.log(ordenesdelusuario);
 
 function mostrarOrdenes() {
     const contenedorOrdenes = document.getElementById("divMisOrdenes");
     contenedorOrdenes.innerHTML = "";
 
-    let ordenesdelusuario = Ordenes.flat().filter(o => o.usuario === usuarioLoggeado.nombreUsuario)
-    
     if (ordenesdelusuario.length > 0) {
         ordenesdelusuario.forEach(e => {
             const ordenes = document.createElement("section");
@@ -45,18 +48,45 @@ function mostrarOrdenes() {
                 tipoOrden.style.color = "red";
             }
 
-            const botonCancelarOrden = document.getElementById("botonCancelarOrden");
+            const botonCancelarOrden = ordenes.querySelector(".botonCancelarOrden");
 
-           /*  botonCancelarOrden.addEventListener("click", ()=>{
-                if(e.orden == "compra"){
+            botonCancelarOrden.addEventListener("click", () => {
+                if (e.orden == "compra") {
                     let totalPorCompra = e.precio * e.cantidad
                     usuarioLoggeado.liquidez += totalPorCompra
 
+                    const indexordenidentificada = ordenesdelusuario.findIndex(orden => orden.id === e.id);
+                    Ordenes.splice(indexordenidentificada, 1)
+
+                    let usuarioJSON = JSON.stringify(usuarioLoggeado)
+                    localStorage.setItem("usuarioOn", usuarioJSON)
+                    let OrdenesJSON = JSON.stringify(Ordenes)
+                    localStorage.setItem("arrayDeOrdenes", OrdenesJSON)
+
+                    Swal.fire({
+                        title: "Orden Cancelada!!",
+                        icon: "success",
+                        draggable: true
+                    }).then(() => {
+                        location.reload()
+                    });
+
+                }else if(e.orden == "venta"){
+
+                    const indexordenidentificada = ordenesdelusuario.findIndex(orden => orden.id === e.id);
+                    let cantidadDeOrdenVentaCancelada = e.cantidad
+                    
+                    const ordenAEliminar = ordenesdelusuario.find(orden => orden.id === e.id);
+                    console.log(ordenAEliminar);
+/*                     
+
+                     */
+                    Ordenes.splice(indexordenidentificada, 1)
                 }
-            }) */
+            })
 
         });
-    }else{
+    } else {
         const ordenesVacia = document.createElement("section");
         ordenesVacia.classList.add("noHayOrdenes");
         ordenesVacia.innerHTML = `<span>No existen órdenes que mostrar</span>`;
@@ -69,11 +99,7 @@ function mostrarOrdenes() {
 mostrarOrdenes()
 const colorOrdenes = document.getElementsByClassName("ordenesUsuario")
 
-
-const CarteraOn = Carteras[indexUsuario]
-console.log(CarteraOn);
-
-function mostrarInversiones(CarteraOn){
+function mostrarInversiones(CarteraOn) {
 
     const contenedorInversiones = document.getElementById("divInversiones");
 
@@ -84,7 +110,7 @@ function mostrarInversiones(CarteraOn){
         if (e.Nombre === undefined) [
             lineas.style.display = "none"
         ];
-        
+
         lineas.innerHTML = `
             <section>${e.Nombre}</section>
             <section>${e.ticker}</section>
