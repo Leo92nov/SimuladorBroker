@@ -159,6 +159,8 @@ recibirPrestamoBoton.addEventListener("click", (event) => {
     let deuda = parseInt(totalADevolver.value)
     usuarioLoggeado.deuda = deuda
     usuarioLoggeado.deudaBruta = cantidadDeseadaPrestamo.value
+    usuarioLoggeado.deudaPorMes = devolverPorCuota.value
+    usuarioLoggeado.tasaPorcentual = tasaMes * 100
     usuarioLoggeado.liquidez = usuarioLoggeado.liquidez + deuda
     let usuarioPrestamo = JSON.stringify(usuarioLoggeado)
     localStorage.setItem("usuarioOn", usuarioPrestamo)

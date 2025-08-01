@@ -1,0 +1,82 @@
+@use "../layout/footer.scss";
+@use "../layout/header.scss";
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.bodyCancelarDeuda {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+
+    .mainCancelarDeuda {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .formDeudaPorMes {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 2rem 2rem;
+            height: auto;
+            width: 20%;
+            padding: 0 1rem;
+            border: 1px solid black;
+
+            .sectionCancelarDeudaMes {
+                display: flex;
+                flex-direction: column;
+                padding: 1rem 0;
+                font-size: 1.3rem;
+
+                input {
+                    height: 1.5rem;
+                }
+            }
+
+            .botonPagarDeudaMensual {
+                height: 2rem;
+                padding: 0 1rem;
+                font-size: 1rem;
+                font-weight: bold;
+                margin-bottom: 1rem;
+            }
+        }
+
+        .formDeudaTotal {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 2rem 2rem;
+            height: auto;
+            width: 20%;
+            padding: 0 1rem;
+            border: 1px solid black;
+
+            .sectionCancelarDeudaTotal {
+                display: flex;
+                flex-direction: column;
+                padding: 1rem 0;
+                font-size: 1.3rem;
+
+                input {
+                    height: 1.5rem;
+                }
+            }
+
+            .botonPagarDeudaTotal {
+                height: 2rem;
+                padding: 0 1rem;
+                font-size: 1rem;
+                font-weight: bold;
+                margin-bottom: 1rem;
+            }
+        }
+    }
+}

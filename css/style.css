@@ -48,7 +48,6 @@
 }
 
 .footer .div-footer {
-  margin-top: 3rem;
   background-color: rgb(10, 37, 64);
   width: 100%;
   height: auto;
@@ -272,7 +271,7 @@
   transition: transform 0.2s;
 }
 .botonesIngresoInvEgreso .botonIngresoDinero:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 .botonesIngresoInvEgreso .linkBotonIngreso {
   text-decoration: none;
@@ -296,7 +295,7 @@
   transition: transform 0.2s;
 }
 .botonesIngresoInvEgreso .linkBotonInverti .botonInvertir:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 .botonesIngresoInvEgreso .botonEgresoDinero {
   background-color: white;
@@ -314,7 +313,7 @@
   transition: transform 0.2s;
 }
 .botonesIngresoInvEgreso .botonEgresoDinero:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 .botonesIngresoInvEgreso .linkBotonEgreso {
   text-decoration: none;
@@ -425,7 +424,7 @@
   font-size: 1.5rem;
 }
 .bodyInicio .divDatosCuenta .sectionDatoscuenta {
-  padding: 0.5re 0;
+  padding: 0.5rem 0;
   display: flex;
   flex-direction: column;
   justify-items: center;
@@ -438,6 +437,31 @@
   font-weight: bolder;
 }
 .bodyInicio .divDatosCuenta .sectionDatoscuenta .spanInversionCuenta {
+  font-weight: bolder;
+}
+.bodyInicio .divDatosDueda {
+  width: 95%;
+  margin: 2rem auto;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 1rem;
+  font-size: 1.5rem;
+}
+.bodyInicio .divDatosDueda .sectionDatosDeuda {
+  padding: 0.5rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+}
+.bodyInicio .divDatosDueda .sectionDatosDeuda .spanDatosDeuda {
+  font-weight: bolder;
+}
+.bodyInicio .divDatosDueda .sectionDatosDeuda .spanMesDeuda {
+  font-weight: bolder;
+}
+.bodyInicio .divDatosDueda .sectionDatosDeuda .spanTotalDeuda {
   font-weight: bolder;
 }
 .bodyInicio .contenedorInversiones {
@@ -767,6 +791,7 @@
   flex-direction: column;
   justify-content: space-between;
   border: 1px solid gray;
+  margin-bottom: 4rem;
 }
 .bodyOrdenes .Ordenes .crearOrden .emitirNuevaOrden {
   background-color: rgb(204, 230, 252);
@@ -892,17 +917,19 @@
 }
 .bodyPrestamos .contenedorHeadPrestamos .divImgsPrestamos .imgsPrestamos {
   margin-top: 3rem;
-  width: 200px;
-  height: 200px;
+  width: 130px;
+  height: 130px;
   object-fit: cover;
   max-width: 100%;
   border-radius: 15px;
 }
 .bodyPrestamos .formulariosPrestamos {
   display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
 }
 .bodyPrestamos .formulariosPrestamos .datosPrestamo {
-  width: 40%;
+  width: auto;
   margin: 2rem 4rem 0 4rem;
   height: auto;
   display: flex;
@@ -1045,6 +1072,75 @@
 .bodiEgresoDinero .mainEgreso .formEgresoDinero .buttonEgreso {
   font-size: 1.2rem;
   margin: 1rem 0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.bodyCancelarDeuda {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.bodyCancelarDeuda .mainCancelarDeuda {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bodyCancelarDeuda .mainCancelarDeuda .formDeudaPorMes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem 2rem;
+  height: auto;
+  width: 20%;
+  padding: 0 1rem;
+  border: 1px solid black;
+}
+.bodyCancelarDeuda .mainCancelarDeuda .formDeudaPorMes .sectionCancelarDeudaMes {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0;
+  font-size: 1.3rem;
+}
+.bodyCancelarDeuda .mainCancelarDeuda .formDeudaPorMes .sectionCancelarDeudaMes input {
+  height: 1.5rem;
+}
+.bodyCancelarDeuda .mainCancelarDeuda .formDeudaPorMes .botonPagarDeudaMensual {
+  height: 2rem;
+  padding: 0 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+.bodyCancelarDeuda .mainCancelarDeuda .formDeudaTotal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem 2rem;
+  height: auto;
+  width: 20%;
+  padding: 0 1rem;
+  border: 1px solid black;
+}
+.bodyCancelarDeuda .mainCancelarDeuda .formDeudaTotal .sectionCancelarDeudaTotal {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0;
+  font-size: 1.3rem;
+}
+.bodyCancelarDeuda .mainCancelarDeuda .formDeudaTotal .sectionCancelarDeudaTotal input {
+  height: 1.5rem;
+}
+.bodyCancelarDeuda .mainCancelarDeuda .formDeudaTotal .botonPagarDeudaTotal {
+  height: 2rem;
+  padding: 0 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
 }
 
 /*# sourceMappingURL=style.css.map */

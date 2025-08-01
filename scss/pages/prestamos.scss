@@ -28,8 +28,8 @@
 
             .imgsPrestamos{
                 margin-top: 3rem;
-                width: 200px;
-                height: 200px;
+                width: 130px;
+                height: 130px;
                 object-fit: cover;
                 max-width: 100%;
                 border-radius: 15px;
@@ -38,9 +38,10 @@
     }
     .formulariosPrestamos{
         display: flex;
-
+        justify-content: center;
+        margin-bottom: 3rem;
         .datosPrestamo{
-            width: 40%;
+            width:auto;
             margin: 2rem 4rem 0 4rem;
             height: auto;
             display: flex;

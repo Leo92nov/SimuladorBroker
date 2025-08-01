@@ -21,6 +21,10 @@ console.log(CarteraOn);
 let ordenesdelusuario = Ordenes.flat().filter(o => o.usuario === usuarioLoggeado.nombreUsuario)
 console.log(ordenesdelusuario);
 
+if(usuarioLoggeado.deuda){
+
+}
+
 function mostrarOrdenes() {
     const contenedorOrdenes = document.getElementById("divMisOrdenes");
     contenedorOrdenes.innerHTML = "";
@@ -150,7 +154,27 @@ totalInversiones.innerText = "$" + totalInversion
 const spanNombreCuenta = document.getElementById("spanNombreCuenta")
 const spanLiquidezCuenta = document.getElementById("spanLiquidezCuenta")
 const spanInversionCuenta = document.getElementById("spanInversionCuenta")
+const spanDatosDeuda = document.getElementById("spanDatosDeuda")
+const spanMesDeuda = document.getElementById("spanMesDeuda")
+const spanTotalDeuda = document.getElementById("spanTotalDeuda")
+const divDatosDueda = document.getElementById("divDatosDueda")
+const descripcionDeuda = document.getElementById("descripcionDeuda")
+const botonCancelarDeuda = document.getElementById("botonCancelarDeuda")
 
 spanNombreCuenta.innerHTML = usuarioLoggeado.nombreUsuario
 spanLiquidezCuenta.innerHTML = usuarioLoggeado.liquidez.toLocaleString('es-AR', { style: 'currency', currency: 'ARS' });
 spanInversionCuenta.innerHTML = totalInversion.toLocaleString('es-AR', { style: 'currency', currency: 'ARS' });
+console.log(usuarioLoggeado.deudaBruta);
+
+
+if (usuarioLoggeado.deuda) {
+    spanDatosDeuda.innerHTML = parseInt(usuarioLoggeado.deudaBruta).toLocaleString('es-AR', { style: 'currency', currency: 'ARS' });
+    descripcionDeuda.innerHTML = usuarioLoggeado.tasaPorcentual + "% de interes mesual"
+    spanMesDeuda.innerHTML = parseInt(usuarioLoggeado.deudaPorMes).toLocaleString('es-AR', { style: 'currency', currency: 'ARS' });
+    spanTotalDeuda.innerHTML = usuarioLoggeado.deuda.toLocaleString('es-AR', { style: 'currency', currency: 'ARS' });
+    botonCancelarDeuda.addEventListener("click", ()=>{
+        window.location.href = "./cancelarDeuda.html";
+    })
+} else {
+    divDatosDueda.style.display = "none";
+}

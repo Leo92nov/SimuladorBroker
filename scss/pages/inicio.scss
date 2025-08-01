@@ -18,7 +18,7 @@
         font-size: 1.5rem;
 
         .sectionDatoscuenta {
-            padding: 0.5re 0;
+            padding: 0.5rem 0;
             display: flex;
             flex-direction: column;
             justify-items: center;
@@ -33,6 +33,35 @@
             }
 
             .spanInversionCuenta {
+                font-weight: bolder;
+            }
+        }
+    }
+    .divDatosDueda {
+        width: 95%;
+        margin: 2rem auto;
+        box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem 1rem;
+        font-size: 1.5rem;
+
+        .sectionDatosDeuda {
+            padding: 0.5rem 0;
+            display: flex;
+            flex-direction: column;
+            justify-items: center;
+            align-items: center;
+
+            .spanDatosDeuda {
+                font-weight: bolder;
+            }
+
+            .spanMesDeuda {
+                font-weight: bolder;
+            }
+
+            .spanTotalDeuda {
                 font-weight: bolder;
             }
         }
