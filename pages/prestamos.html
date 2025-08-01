@@ -31,7 +31,7 @@
             </div>
         </nav>
     </header>
-    <div>
+        <div>
         <div class="contenedorHeadPrestamos">
             <h1 class="h1Prestamos">Solicita tu prestamo al Instante</h1>
             <div class="divImgsPrestamos">
@@ -54,23 +54,15 @@
             <form action="" class="formPrestamo">
                 <fieldset class="fieldsetPrestamo">
                     <section class="sectioFormPrestamo">
-                        <label for="nombre">Apellido y Nombre/s</label>
-                        <input type="text" id="inputNombrePrestamo" name="nombre">
-                        <label for="usuario">Nombre de Usuario</label>
+                        <label for="usuario">Nombre de Cuenta</label>
                         <input type="text" id="inputNombreUsuarioPrestamo" name="usuario">
                     </section>
                     <section class="sectioFormPrestamo">
-                        <select type="select" name="documentacion" id="documentacionPrestamos">
-                            <option value="seleccion">Documentación:</option>
-                            <option value="DNI">DNI</option>
-                            <option value="DNE">DNE</option>
-                            <label for="dni"></label>
-                            <input type="text" name="dni" placeholder="N° Documento">
+                        <label for="dni">DNI</label>
+                        <input type="text" name="dni" placeholder="N° Documento" id="numeroDocumento">
                         </select>
                     </section>
                     <section class="sectioFormPrestamo">
-                        <label for="fechaNacimiento">Fecha de nacimiento</label>
-                        <input type="date" name="fechaNacimiento" id="fechaNacimiento" required>
                         <label for="sexo">Sexo según Documento</label>
                         <select name="sexo" id="sexoPrestamo">
                             <option value="masculino">Masculino</option>
@@ -78,48 +70,50 @@
                         </select>
                     </section>
                     <section class="sectioFormPrestamo">
-                        <label for="email">E-mail</label>
-                        <input type="text" name="email" placeholder="Introduzca su e-mail">
+                        <label for="cantidad">Cantidad Deseada</label>
+                        <input type="number" name="cantidad" placeholder="Cantidad deseada"
+                            id="cantidadDeseadaPrestamo">
                     </section>
                     <section class="sectioFormPrestamo">
-                        <button type="submit">Calcular Prestamo</button>
+                        <label for="cuotas">Plazo total en meses</label>
+                        <input type="number" name="cuotas" placeholder="Meses total devolucion"
+                            id="plazoTotalMesesprestamo">
+                    </section>
+                    <section class="sectioFormPrestamo">
+                        <div id="errorDePrecioTotal"></div>
+                        <button type="button" id="calcularPrestamo">Calcular Prestamo</button>
                     </section>
                 </fieldset>
             </form>
         </div>
+
         <div class="datosPrestamo">
             <form action="" class="formPrestamo">
                 <fieldset class="fieldsetPrestamo">
                     <section class="sectioFormPrestamo">
-                        <label for="nombre">Apellido y Nombre/s</label>
-                        <input type="text" id="inputNombrePrestamo" name="nombre">
-                        <label for="usuario">Nombre de Usuario</label>
-                        <input type="text" id="inputNombreUsuarioPrestamo" name="usuario">
+                        <label for="prestamo">Total Prestamo Posible</label>
+                        <input type="text" id="totalPrestamoPosible" name="prestamo" readonly>
+                        <label for="devolverPorCuota">Cantidad a devolver por cuota</label>
+                        <input type="text" id="devolverPorCuota" name="devolverPorCuota" readonly>
+                    </section>
                     </section>
                     <section class="sectioFormPrestamo">
-                        <select type="select" name="documentacion" id="documentacionPrestamos">
-                            <option value="seleccion">Documentación:</option>
-                            <option value="DNI">DNI</option>
-                            <option value="DNE">DNE</option>
-                            <label for="dni"></label>
-                            <input type="text" name="dni" placeholder="N° Documento">
-                        </select>
+                        <label for="tasaMensual">Tasa Mensual</label>
+                        <input type="text" id="tasaMensualPrestamo" name="tasaMensual" readonly>
                     </section>
                     <section class="sectioFormPrestamo">
-                        <label for="fechaNacimiento">Fecha de nacimiento</label>
-                        <input type="date" name="fechaNacimiento" id="fechaNacimiento" required>
-                        <label for="sexo">Sexo según Documento</label>
-                        <select name="sexo" id="sexoPrestamo">
-                            <option value="masculino">Masculino</option>
-                            <option value="masculino">Femenino</option>
-                        </select>
+                        <label for="cantidad">Total a Devolver</label>
+                        <input type="number" name="cantidad" readonly id="totalADevolver">
                     </section>
                     <section class="sectioFormPrestamo">
-                        <label for="email">E-mail</label>
-                        <input type="text" name="email" placeholder="Introduzca su e-mail">
+                        <label for="cuotas">Utilizar mis titulos y liquidez como garantia</label>
+                        <input type="checkbox" name="cuotas" placeholder="Meses total devolucion" required
+                            id="checkBoxPrestamo">
                     </section>
+
                     <section class="sectioFormPrestamo">
-                        <button type="submit">Calcular Prestamo</button>
+                        <div id="errorDePrestamoTotal"></div>
+                        <button type="button" id="recibirPrestamoBoton">Recibir Prestamo</button>
                     </section>
                 </fieldset>
             </form>

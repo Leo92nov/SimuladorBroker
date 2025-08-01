@@ -12,14 +12,14 @@ if (Usuarios) {
 }else{
 
     const ArrUsuarios = [
-        {nombre: "Leonardo", nombreUsuario: "36765496", contrasena: "starplatinum", liquidez: 265000, palabraSecreta: "Fantástico"},
-        {nombre: "Diego", nombreUsuario: "diego", contrasena: "brando", liquidez: 295000, palabraSecreta: "Financiera"},
-        {nombre: "Pablo", nombreUsuario: "pablin", contrasena: "guitarra", liquidez: 25000, palabraSecreta: "8Mile"},
-        {nombre: "Alejandro", nombreUsuario: "ale", contrasena: "discordia", liquidez: 465000, palabraSecreta: "Desodorante"},
-        {nombre: "Santiago", nombreUsuario: "santi", contrasena: "martin", liquidez: 65000, palabraSecreta: "Octógono"},
-        {nombre: "Juan", nombreUsuario: "juan", contrasena: "pablo", liquidez: 5000, palabraSecreta: "Terraforma"},
-        {nombre: "Gabriel", nombreUsuario: "gabi", contrasena: "sosa", liquidez: 635000, palabraSecreta: "Ascención"},
-        { nombre: "Miguel", nombreUsuario: "miguelon", contrasena: "queen", liquidez: 6350000, palabraSecreta: "Aspirina"}
+        {nombre: "Leonardo", nombreUsuario: "36765496", contrasena: "starplatinum", liquidez: 265000, palabraSecreta: "Fantástico", DNI: 36765496},
+        {nombre: "Diego", nombreUsuario: "diego", contrasena: "brando", liquidez: 295000, palabraSecreta: "Financiera", DNI: 36765496},
+        {nombre: "Pablo", nombreUsuario: "pablin", contrasena: "guitarra", liquidez: 25000, palabraSecreta: "8Mile", DNI: 36765496},
+        {nombre: "Alejandro", nombreUsuario: "ale", contrasena: "discordia", liquidez: 465000, palabraSecreta: "Desodorante", DNI: 36765496},
+        {nombre: "Santiago", nombreUsuario: "santi", contrasena: "martin", liquidez: 65000, palabraSecreta: "Octógono", DNI: 36765496},
+        {nombre: "Juan", nombreUsuario: "juan", contrasena: "pablo", liquidez: 5000, palabraSecreta: "Terraforma", DNI: 36765496},
+        {nombre: "Gabriel", nombreUsuario: "gabi", contrasena: "sosa", liquidez: 635000, palabraSecreta: "Ascención", DNI: 36765496},
+        {nombre: "Miguel", nombreUsuario: "miguelon", contrasena: "queen", liquidez: 6350000, palabraSecreta: "Aspirina", DNI: 36765496}
     ]
 
 
@@ -223,6 +223,7 @@ const ingreso = document.getElementById("ingresoBoton")
         
         if (!usuarioExistente && usuarioIngresado.value !== "" && contrasenaIngresada.value !== "") {
             mostrarMensaje("Datos incorrectos, intenta nuevamente");
+            return
         }
       
     }

@@ -102,33 +102,36 @@ tickerAbuscar.addEventListener("input", () => {
         return;
     }
 
-    const tickers = OrdenesTotales.filter(orden =>
-        orden.ticker.toLowerCase().includes(busquedaOrden) && orden.usuario !== usuarioLoggeado.nombreUsuario);
+    const tickersFiltrados = OrdenesTotales.filter(orden =>
+        orden.ticker.toLowerCase().includes(busquedaOrden) &&
+        orden.usuario !== usuarioLoggeado.nombreUsuario
+    );
 
-    tickers.forEach(orden => {
+    const tickersUnicos = [...new Set(tickersFiltrados.map(orden => orden.ticker))];
+
+    tickersUnicos.forEach(ticker => {
         const li = document.createElement("li");
-        li.textContent = orden.ticker;
+        li.textContent = ticker;
         tickersABuscar.appendChild(li);
 
         li.addEventListener("click", () => {
-            tickerAbuscar.value = orden.ticker;
+            tickerAbuscar.value = ticker;
             tickersABuscar.innerHTML = "";
 
             const ordenesFiltradas = OrdenesTotales.filter(orden =>
-                orden.ticker === tickerAbuscar.value &&
+                orden.ticker === ticker &&
                 orden.usuario !== usuarioLoggeado.nombreUsuario
             );
 
             ordenesFiltradas.forEach(orden => {
-                const ordenes = document.createElement("li");
-                ordenes.textContent = orden.ticker;
-                ordenes.className = "ordenEnCaja";
-                ordenes.innerHTML = `
-                    <div>${orden.cantidad}</div>
-                    <div>${orden.precio}</div>
-                `
+                const liOrden = document.createElement("li");
+                liOrden.className = "ordenEnCaja";
+                liOrden.innerHTML = `
+                <div>${orden.cantidad}</div>
+                <div>${orden.precio}</div>
+            `;
 
-                ordenes.addEventListener("click", () => {
+                liOrden.addEventListener("click", () => {
                     cedearAOperar.value = orden.ticker;
                     cedearAOperarNombre.value = orden.Nombre;
                     cantidadCedearOperar.value = orden.cantidad;
@@ -137,16 +140,15 @@ tickerAbuscar.addEventListener("input", () => {
                     precioTotalOperar.value = orden.precio * orden.cantidad;
                     idOperacion.value = orden.id;
                 });
+
                 if (orden.orden === "venta") {
-                    ordenesVentaCargar.appendChild(ordenes);
+                    ordenesVentaCargar.appendChild(liOrden);
                 } else if (orden.orden === "compra") {
-                    ordenesCompraCargar.appendChild(ordenes);
+                    ordenesCompraCargar.appendChild(liOrden);
                 }
             });
-
         });
-
-    })
+    });
 
 })
 
@@ -484,41 +486,41 @@ botonRealizarOperacion.addEventListener("click", () => {
     console.log(nuevaOrdenCreada);
 
     if (nuevaOrdenCreada.orden === "compra") {
-    usuarioLoggeado.liquidez -= precioTotalCedearOrden.value
-    let usuarioON = JSON.stringify(usuarioLoggeado);
-    localStorage.setItem("usuarioOn", usuarioON);
+        usuarioLoggeado.liquidez -= precioTotalCedearOrden.value
+        let usuarioON = JSON.stringify(usuarioLoggeado);
+        localStorage.setItem("usuarioOn", usuarioON);
 
-    OrdenesTotales.push(nuevaOrdenCreada)
-    const OrdenesJSON = JSON.stringify(OrdenesTotales);
-    localStorage.setItem("arrayDeOrdenes", OrdenesJSON);
+        OrdenesTotales.push(nuevaOrdenCreada)
+        const OrdenesJSON = JSON.stringify(OrdenesTotales);
+        localStorage.setItem("arrayDeOrdenes", OrdenesJSON);
 
-    Swal.fire({
-        title: "Orden creada con éxito!!",
-        icon: "success",
-        draggable: true
-    }).then(() => {
-        window.location.href = "../pages/inicio.html";
-    });
-    
-} else if (nuevaOrdenCreada.orden === "venta") {
-    OperarSobreCedearEnCartera.cantidad -= nuevaOrdenCreada.cantidad
+        Swal.fire({
+            title: "Orden creada con éxito!!",
+            icon: "success",
+            draggable: true
+        }).then(() => {
+            window.location.href = "../pages/inicio.html";
+        });
 
-    carteras[indexUsuario] = carteraON;
+    } else if (nuevaOrdenCreada.orden === "venta") {
+        OperarSobreCedearEnCartera.cantidad -= nuevaOrdenCreada.cantidad
 
-    OrdenesTotales.push(nuevaOrdenCreada)
-    let carterasJSON = JSON.stringify(carteras)
-    localStorage.setItem("arrayDeCarteras", carterasJSON)
-    const OrdenesJSON = JSON.stringify(OrdenesTotales);
-    localStorage.setItem("arrayDeOrdenes", OrdenesJSON);
+        carteras[indexUsuario] = carteraON;
 
-    Swal.fire({
-        title: "Orden creada con éxito!!",
-        icon: "success",
-        draggable: true
-    }).then(() => {
-        window.location.href = "../pages/inicio.html";
-    });
-}
+        OrdenesTotales.push(nuevaOrdenCreada)
+        let carterasJSON = JSON.stringify(carteras)
+        localStorage.setItem("arrayDeCarteras", carterasJSON)
+        const OrdenesJSON = JSON.stringify(OrdenesTotales);
+        localStorage.setItem("arrayDeOrdenes", OrdenesJSON);
+
+        Swal.fire({
+            title: "Orden creada con éxito!!",
+            icon: "success",
+            draggable: true
+        }).then(() => {
+            window.location.href = "../pages/inicio.html";
+        });
+    }
 
 })
 

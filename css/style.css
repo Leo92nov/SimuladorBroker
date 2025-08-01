@@ -1017,8 +1017,9 @@
   justify-content: center;
 }
 .bodiEgresoDinero .mainEgreso .formEgresoDinero {
+  border: 1px solid white;
   margin-top: 2rem;
-  width: 35%;
+  width: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

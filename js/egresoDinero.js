@@ -1,15 +1,26 @@
 const cantidadAegresar = document.getElementById("cantidadAegresar")
 const SimularEgresoDinero = document.getElementById("SimularEgresoDinero")
 
-let carteraJSON = localStorage.getItem("carteraOn");
-let carteraOn = JSON.parse(carteraJSON);
+
+let carterasJSON = localStorage.getItem("arrayDeCarteras");
+let Carteras = JSON.parse(carterasJSON);
+
+let usuariosRecuperados = localStorage.getItem("arrayDeUsuarios")
+let Usuarios = JSON.parse(usuariosRecuperados)
+
+let usuario = localStorage.getItem('usuarioOn')
+let usuarioLoggeado = JSON.parse(usuario)
+
+const indexUsuario = Usuarios.findIndex(usuario => usuario.nombreUsuario === usuarioLoggeado.nombreUsuario);
+
+const carteraOn = Carteras[indexUsuario]
+
+
 
 const totalInversion = carteraOn.reduce((acumulador, e) => {
     return acumulador + (e.cantidad * e.precio);
 }, 0);
 
-let usuario = localStorage.getItem('usuarioOn')
-let usuarioLoggeado = JSON.parse(usuario)
 
 SimularEgresoDinero.addEventListener("click", (event) => {
 

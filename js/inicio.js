@@ -5,8 +5,8 @@ let totalinversion
 const usuarioOn = localStorage.getItem("usuarioOn");
 const usuarioLoggeado = JSON.parse(usuarioOn);
 
-const carterasJSON = localStorage.getItem("arrayDeCarteras");
-const Carteras = JSON.parse(carterasJSON);
+let carterasJSON = localStorage.getItem("arrayDeCarteras");
+let Carteras = JSON.parse(carterasJSON);
 
 let OrdenesJSON = localStorage.getItem("arrayDeOrdenes");
 let Ordenes = JSON.parse(OrdenesJSON);
@@ -71,17 +71,32 @@ function mostrarOrdenes() {
                         location.reload()
                     });
 
-                }else if(e.orden == "venta"){
+                } else if (e.orden == "venta") {
 
                     const indexordenidentificada = ordenesdelusuario.findIndex(orden => orden.id === e.id);
-                    let cantidadDeOrdenVentaCancelada = e.cantidad
-                    
-                    const ordenAEliminar = ordenesdelusuario.find(orden => orden.id === e.id);
-                    console.log(ordenAEliminar);
-/*                     
 
-                     */
+                    const ordenAEliminar = ordenesdelusuario.find(orden => orden.id === e.id);
+                    let ordenEnCartera = CarteraOn.find(e => ordenAEliminar.ticker === e.ticker)
+                    ordenEnCartera.cantidad += e.cantidad
+                    console.log(CarteraOn);
                     Ordenes.splice(indexordenidentificada, 1)
+
+                    Carteras[indexUsuario] = CarteraOn
+
+                    carterasJSON = JSON.stringify(Carteras)
+                    localStorage.setItem("arrayDeCarteras", carterasJSON)
+
+                    OrdenesJSON = JSON.stringify(Ordenes)
+                    localStorage.setItem("arrayDeOrdenes", OrdenesJSON)
+
+                    Swal.fire({
+                        title: "Orden Cancelada!!",
+                        icon: "success",
+                        draggable: true
+                    }).then(() => {
+                        location.reload()
+                    });
+
                 }
             })
 
