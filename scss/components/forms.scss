@@ -1,18 +1,12 @@
 .bodyIndex{
-    height: 100vh;
-    max-width: 100%;
-    overflow: hidden;
-    padding: 0;
-    margin: 0;
-    background-color: #f4f5ff;
 
     .form{
-        height: 100%;
+        height: auto;
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        object-fit: cover;
+        margin: 1rem 0 1rem 0;
 
         .formIngreso{
             width: 28rem;
@@ -24,7 +18,7 @@
             .contenidoFormulario{
                 padding: 0;
                 margin: 0;
-                height: 100%;
+                height: auto;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -76,8 +70,17 @@
                             
                         }
                     }
-
+                    
                     .boton{
+                        font-size: 1.3rem;
+                        background-color: #0a2540;
+                        color: aliceblue;
+                    }
+                    .boton2{
+                        width: 85%;
+                        height: 3rem;
+                        margin-top: 0.5rem;
+                        font-size: 1.3rem;
                         background-color: #0a2540;
                         color: aliceblue;
                     }

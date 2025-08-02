@@ -6,6 +6,7 @@ const nombreUsuario = document.getElementById("nombreRecuperacion")
 const palabraSecreta = document.getElementById("palabraSecreta")
 const NuevaContrasena = document.getElementById("nuevaContrasena")
 const RepetirNuevaContrasena = document.getElementById("repetirNuevaContrasena")
+const recuperacionCancelar = document.getElementById("recuperacionCancelar")
 
 function mostrarMensaje(mensaje, tipo = "error") {
     const contenedor = document.getElementById("mensajeError");
@@ -36,13 +37,13 @@ BotonRecuperar.addEventListener("click", (event) =>{
         localStorage.setItem("arrayDeUsuarios", Usuarios)
 
         
-        mostrarMensaje("Contraseña actualizada!!", "ok")
-
-        setTimeout(() => {
-
-            window.location.replace("../index.html")
-            
-        }, 1000);
+          Swal.fire({
+            title: "Contraseña Actualizada!!",
+            icon: "success",
+            draggable: true
+        }).then(() => {
+            window.location.href = "../index.html";
+        });
 
     }else{
 
@@ -51,4 +52,6 @@ BotonRecuperar.addEventListener("click", (event) =>{
 
 })
 
-
+recuperacionCancelar.addEventListener("click", ()=>{
+    window.location.replace("../index.html")
+})

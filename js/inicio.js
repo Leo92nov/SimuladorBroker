@@ -149,7 +149,12 @@ const totalInversion = CarteraOn.reduce((acumulador, e) => {
 }, 0);
 
 const totalInversiones = document.getElementById("spanTotalInvertido")
-totalInversiones.innerText = "$" + totalInversion
+if(isNaN(totalInversion)){
+    let totalInversionF = 0
+    totalInversiones.innerText = totalInversionF.toLocaleString('es-AR', { style: 'currency', currency: 'ARS' });
+}else{
+    totalInversiones.innerText = "$" + totalInversion
+}
 
 const spanNombreCuenta = document.getElementById("spanNombreCuenta")
 const spanLiquidezCuenta = document.getElementById("spanLiquidezCuenta")
@@ -163,9 +168,12 @@ const botonCancelarDeuda = document.getElementById("botonCancelarDeuda")
 
 spanNombreCuenta.innerHTML = usuarioLoggeado.nombreUsuario
 spanLiquidezCuenta.innerHTML = usuarioLoggeado.liquidez.toLocaleString('es-AR', { style: 'currency', currency: 'ARS' });
-spanInversionCuenta.innerHTML = totalInversion.toLocaleString('es-AR', { style: 'currency', currency: 'ARS' });
-console.log(usuarioLoggeado.deudaBruta);
-
+if(isNaN(spanInversionCuenta)){
+    let inversionFallida = 0
+    spanInversionCuenta.innerHTML = inversionFallida.toLocaleString('es-AR', { style: 'currency', currency: 'ARS' });
+}else{
+    spanInversionCuenta.innerHTML = totalInversion.toLocaleString('es-AR', { style: 'currency', currency: 'ARS' });
+}
 
 if (usuarioLoggeado.deuda) {
     spanDatosDeuda.innerHTML = parseInt(usuarioLoggeado.deudaBruta).toLocaleString('es-AR', { style: 'currency', currency: 'ARS' });

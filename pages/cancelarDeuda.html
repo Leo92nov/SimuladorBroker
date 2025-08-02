@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
-    <script src="../js/cacelarDeuda.js"></script>
+    <script src="../js/cacelarDeuda.js" defer></script>
     <title>Cancelar Deuda</title>
 </head>
 
@@ -24,7 +24,6 @@
                         <li class="headerListItem"><a href="./panelGeneral.html" class="headerListItem">Panel
                                 General</a></li>
                         <li class="headerListItem"><a href="./prestamos.html" class="headerListItem">Préstamos</a></li>
-                        <li class="headerListItem"><a href="./calculdora.html" class="headerListItem">Calculadora</a>
                         </li>
                     </ul>
                 </div>
@@ -34,32 +33,40 @@
 <h1 class="h1cancelarDeuda">Realiza tus pagos aca</h1>
     <div class="mainCancelarDeuda">
         <form action="" class="formDeudaPorMes">
+            <section class="sectionSpan">
+                <span class="spanDeudaMensual">Deuda Mensual</span>
+            </section>
             <section class="sectionCancelarDeudaMes">
                 <label for="deudaTotal" class="elementoFormDeudaMes">Deuda Total</label>
-                <input type="number" name="deudaTotal" id="" class="elementoFormDeudaMes">
+                <input type="number" name="deudaTotal" id="cancelarDeudaMesTotal" class="elementoFormDeudaMes">
             </section>
             <section class="sectionCancelarDeudaMes">
                 <label for="deudaRestante" class="elementoFormDeudaMes">Deuda Restante</label>
-                <input type="number" name="deudaRestante" id="" class="elementoFormDeudaMes">
+                <input type="number" name="deudaRestante" id="cancelarDeudaMesRestante" class="elementoFormDeudaMes">
             </section>
             <section class="sectionCancelarDeudaMes">
                 <label for="deudaDelMes" class="elementoFormDeudaMes">Deuda por Mes</label>
-                <input type="number" name="deudaDelMes" id="" class="elementoFormDeudaMes">
+                <input type="number" name="deudaDelMes" id="cancelarDeudaMesMes" class="elementoFormDeudaMes">
             </section>
             <button type="button" id="botonPagarDeudaMensual" class="botonPagarDeudaMensual">Pagar</button>
         </form>
         <form action="" class="formDeudaTotal">
+            <section class="sectionSpan">
+                <span class="spanDeudaTotal">
+                    Deuda Total
+                </span>
+            </section>
             <section class="sectionCancelarDeudaTotal">
                 <label for="deudaTotal">Deuda Total</label>
-                <input type="number" name="deudaTotal" id="deudaTotal">
+                <input type="number" name="deudaTotal" id="cancelarDeudaTotalTotal">
             </section>
             <section class="sectionCancelarDeudaTotal">
                 <label for="deudaRestante">Deuda Restante</label>
-                <input type="number" name="deudaRestante" id="deudaRestante">
+                <input type="number" name="deudaRestante" id="cancelarDeudaTotalRestante">
             </section>
             <section class="sectionCancelarDeudaTotal">
                 <label for="deudaEnUnPago">Deuda en un Pago</label>
-                <input type="number" name="deudaEnUnPago" id="deudaEnUnPago">
+                <input type="number" name="deudaEnUnPago" id="cancelarDeudaTotalunPago">
             </section>
             <button type="button" id="botonPagarDeudaTotal" class="botonPagarDeudaTotal">Pagar</button>
         </form>
@@ -79,7 +86,6 @@
                 <a href="./ordenes.html" class="enlacei">Operar</a>
                 <a href="./panelGeneral.html" class="enlacei">Panel General</a>
                 <a href="./prestamos.html" class="enlacei">Prestamos</a>
-                <a href="./calculdora.html" class="enlacei">Calculadora</a>
             </div>
 
             <div class="accion">

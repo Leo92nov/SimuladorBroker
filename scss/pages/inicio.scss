@@ -64,6 +64,12 @@
             .spanTotalDeuda {
                 font-weight: bolder;
             }
+            .botonCancelarDeuda{
+                padding: 4px 4px;
+                color: aliceblue;
+                background-color: variables.$color-principal;
+                border-radius: 8px;
+            }
         }
     }
 

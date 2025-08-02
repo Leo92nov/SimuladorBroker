@@ -155,8 +155,6 @@
         gap: 3rem;
         margin-top: 3rem;
 
-
-
         .divFormulariooperacion {
             width: 40%;
             display: flex;
@@ -204,7 +202,13 @@
                         margin: 1rem 0;
                         padding: 0 4px 0 4px;
                         background-color: variables.$color-principal;
+                        border-radius: 8px;
                         color: white;
+                        transition: 0.2s;
+
+                        &:hover{
+                            transform: scale(1.1);
+                        }
                     }
                 }
 
@@ -339,11 +343,17 @@
                     height: 2rem;
                     margin: 1rem 1.5rem 1rem 0;
                     background-color: variables.$color-principal;
+                    border-radius: 8px;
                     color: aliceblue;
                     font-size: 1rem;
+                    transition: 0.2s;
+
+                        &:hover{
+                            transform: scale(1.1);
+                        }
+                    }
                 }
             }
 
         }
     }
-}

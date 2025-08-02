@@ -9,6 +9,14 @@ SimularIngresoDinero.addEventListener("click", (event) => {
 
     event.preventDefault();
 
+    if(isNaN(cantidadAIngresar) || cantidadAIngresar <= 0){
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Revise que quiere Ingrerar!!",
+        });
+        return
+    }
     let ingreso = parseInt(cantidadAIngresar.value)
     function sumaALiquidez(ingreso) {
         return ingreso + usuarioLoggeado.liquidez

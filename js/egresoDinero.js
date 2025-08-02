@@ -27,21 +27,29 @@ SimularEgresoDinero.addEventListener("click", (event) => {
     event.preventDefault();
 
     let egreso = parseInt(cantidadAegresar.value)
+
+    if(isNaN(cantidadAegresar) || cantidadAegresar <= 0){
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Revise que quiere Retirar!!",
+        });
+        return
+    }
     if (usuarioLoggeado.deuda) {
         Swal.fire({
             icon: "error",
             title: "Oops...",
             text: "Cancele su deuda antes de retirar sus fondos!!",
-
         });
+        return
     } else if (usuarioLoggeado.deuda < (usuarioLoggeado.liquidez + totalInversion) || egreso > usuarioLoggeado.liquidez) {
         Swal.fire({
             icon: "error",
             title: "Oops...",
             text: "Fondos insuficientes, venda alguno de sus titulos!",
-
         });
-
+        return
     } else {
         let resto = parseInt(usuarioLoggeado.liquidez) - parseInt(egreso)
         usuarioLoggeado.liquidez = resto

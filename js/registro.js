@@ -6,7 +6,7 @@ let Ordenesm = localStorage.getItem("arrayDeOrdenes")
 let OrdenesTraidas = JSON.parse(Ordenesm)
 
 
-const UsuarioCreado =[]
+const UsuarioCreado = []
 const carteraNueva = []
 const Ordenes = []
 
@@ -18,6 +18,7 @@ const ContraseñaUsuarioNuevo = document.getElementById("registroContrasena")
 const RepetirContraseña = document.getElementById("repetirContrasena")
 const PalabraSecreta = document.getElementById("palabraSecreta")
 const Boton = document.getElementById("botonRegistro")
+const botonRegistroCancelar= document.getElementById("botonRegistroCancelar")
 
 let usuarioRegistrado
 
@@ -32,42 +33,43 @@ function mostrarMensaje(mensaje, tipo = "error") {
     }
 }
 
-class crearUsuario{
-    constructor(NuevoNombre, NuevoUsuario, ContraseñaUsuarioNuevo, PalabraSecreta, liquidez){
+class crearUsuario {
+    constructor(NuevoNombre, NuevoUsuario, ContraseñaUsuarioNuevo, PalabraSecreta, liquidez, DNI) {
         this.nombre = NuevoNombre.value,
-        this.nombreUsuario = NuevoUsuario.value,
-        this.contrasena = ContraseñaUsuarioNuevo.value,
-        this.palabraSecreta = PalabraSecreta.value
+            this.nombreUsuario = NuevoUsuario.value,
+            this.contrasena = ContraseñaUsuarioNuevo.value,
+            this.palabraSecreta = PalabraSecreta.value
         this.liquidez = liquidez
+        this.DNI = DNI
     }
 }
 
-class crearCartera{
-    constructor(Nombre, Ticker, Precio, Cantidad){
+class crearCartera {
+    constructor(Nombre, Ticker, Precio, Cantidad) {
         this.nombre = Nombre,
-        this.ticker = Ticker,
-        this.precio = Precio,
-        this.cantidad = Cantidad
+            this.ticker = Ticker,
+            this.precio = Precio,
+            this.cantidad = Cantidad
 
     }
 }
 
-Boton.addEventListener("click", (event)=>{
+Boton.addEventListener("click", (event) => {
     event.preventDefault();
 
     const usuarioExistente = Usuarios.find(e => e.nombreUsuario === NuevoUsuario.value)
 
-    
-    if(usuarioExistente){
+
+    if (usuarioExistente) {
         mostrarMensaje("Nombre de usuario ya utilizado!! Por favor elija otro.")
     }
-    else if(ContraseñaUsuarioNuevo.value !== RepetirContraseña.value){
+    else if (ContraseñaUsuarioNuevo.value !== RepetirContraseña.value) {
         mostrarMensaje("Las contraseñas no coinciden!!")
-    }else{
-        
-        const usuarioRegistrado = new crearUsuario(NuevoNombre, NuevoUsuario, ContraseñaUsuarioNuevo, PalabraSecreta, 0);
+    } else {
+
+        const usuarioRegistrado = new crearUsuario(NuevoNombre, NuevoUsuario, ContraseñaUsuarioNuevo, PalabraSecreta, 0, 36765496);
         const carteraNueva = [new crearCartera()]
-        
+
         Carteras.push(carteraNueva)
 
         let CarterasJSON = JSON.stringify(Carteras)
@@ -77,18 +79,23 @@ Boton.addEventListener("click", (event)=>{
         Usuarios.push(usuarioRegistrado)
         Usuarios = JSON.stringify(Usuarios)
         localStorage.setItem("arrayDeUsuarios", Usuarios)
-        mostrarMensaje("Registro Exitoso! Redireccionando...", "ok")
+        Swal.fire({
+            title: "Registro Exitoso!!",
+            icon: "success",
+            draggable: true
 
-        setTimeout(() => {
-        
-            window.location.replace("../index.html")
-        
-        }, 1500);
+        }).then(() => {
+
+            window.location.href = "../index.html";
+        });
 
     }
 
 })
 
+botonRegistroCancelar.addEventListener("click", ()=>{
+     window.location.href = "../index.html";
+})
 
 
 
