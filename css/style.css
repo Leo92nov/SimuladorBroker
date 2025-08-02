@@ -1084,6 +1084,15 @@
   width: 100%;
   margin: 0;
   padding: 0;
+  /*     background-image: url(../../assets/images/Backgrounds/Velas.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center; */
+}
+.bodyCancelarDeuda .h1cancelarDeuda {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
 }
 .bodyCancelarDeuda .mainCancelarDeuda {
   display: flex;
@@ -1094,7 +1103,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 2rem 2rem;
+  margin: 1rem 2rem 2rem 2rem;
   height: auto;
   width: 20%;
   padding: 0 1rem;
@@ -1109,18 +1118,23 @@
 .bodyCancelarDeuda .mainCancelarDeuda .formDeudaPorMes .sectionCancelarDeudaMes input {
   height: 1.5rem;
 }
+.bodyCancelarDeuda .mainCancelarDeuda .formDeudaPorMes .sectionCancelarDeudaMes label {
+  background-color: rgb(227, 232, 255);
+}
 .bodyCancelarDeuda .mainCancelarDeuda .formDeudaPorMes .botonPagarDeudaMensual {
   height: 2rem;
   padding: 0 1rem;
   font-size: 1rem;
   font-weight: bold;
   margin-bottom: 1rem;
+  color: aliceblue;
+  background-color: rgb(10, 37, 64);
 }
 .bodyCancelarDeuda .mainCancelarDeuda .formDeudaTotal {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 2rem 2rem;
+  margin: 1rem 2rem 2rem 2rem;
   height: auto;
   width: 20%;
   padding: 0 1rem;
@@ -1132,6 +1146,9 @@
   padding: 1rem 0;
   font-size: 1.3rem;
 }
+.bodyCancelarDeuda .mainCancelarDeuda .formDeudaTotal .sectionCancelarDeudaTotal label {
+  background-color: rgb(227, 232, 255);
+}
 .bodyCancelarDeuda .mainCancelarDeuda .formDeudaTotal .sectionCancelarDeudaTotal input {
   height: 1.5rem;
 }
@@ -1141,6 +1158,8 @@
   font-size: 1rem;
   font-weight: bold;
   margin-bottom: 1rem;
+  color: aliceblue;
+  background-color: rgb(10, 37, 64);
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,6 +1,6 @@
 @use "../layout/footer.scss";
 @use "../layout/header.scss";
-
+@use"../abstracts/variables.scss";
 
 * {
     margin: 0;
@@ -12,7 +12,15 @@
     width: 100%;
     margin: 0;
     padding: 0;
-
+/*     background-image: url(../../assets/images/Backgrounds/Velas.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; */
+    .h1cancelarDeuda{
+        display: flex;
+        justify-content: center;
+        margin: 1rem 0;
+    }
 
     .mainCancelarDeuda {
         display: flex;
@@ -23,7 +31,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin: 2rem 2rem;
+            margin: 1rem 2rem 2rem 2rem;
             height: auto;
             width: 20%;
             padding: 0 1rem;
@@ -38,6 +46,10 @@
                 input {
                     height: 1.5rem;
                 }
+
+                label {
+                    background-color: rgb(227, 232, 255);
+                }
             }
 
             .botonPagarDeudaMensual {
@@ -46,6 +58,8 @@
                 font-size: 1rem;
                 font-weight: bold;
                 margin-bottom: 1rem;
+                color: aliceblue;
+                background-color: variables.$color-principal;
             }
         }
 
@@ -53,7 +67,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin: 2rem 2rem;
+            margin: 1rem 2rem 2rem 2rem;
             height: auto;
             width: 20%;
             padding: 0 1rem;
@@ -64,6 +78,10 @@
                 flex-direction: column;
                 padding: 1rem 0;
                 font-size: 1.3rem;
+
+                label {
+                    background-color: rgb(227, 232, 255);
+                }
 
                 input {
                     height: 1.5rem;
@@ -76,6 +94,8 @@
                 font-size: 1rem;
                 font-weight: bold;
                 margin-bottom: 1rem;
+                color: aliceblue;
+                background-color: variables.$color-principal;
             }
         }
     }
